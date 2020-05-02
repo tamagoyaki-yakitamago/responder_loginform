@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    container_name: web
+    command: python /code/src/run.py
+    volumes:
+      - .:/code
+    ports:
+      - 5042:5042
+    tty: true
