@@ -1,11 +1,4 @@
-import responder
-
-api = responder.API()
-
-
-@api.route("/")
-def hello_world(req, res):
-    res.text = "hello, world"
+from urls import api
 
 
 if __name__ == "__main__":
