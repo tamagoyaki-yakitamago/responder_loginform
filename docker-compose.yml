@@ -10,3 +10,19 @@ services:
     ports:
       - 5042:5042
     tty: true
+  db:
+    image: postgres
+    container_name: db
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./initdb:/docker-entrypoint-initdb.d"
+      - "dbdata:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tests_db
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=ja_JP.UTF-8"
+
+volumes:
+  dbdata:
